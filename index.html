@@ -35,7 +35,7 @@
 	<script>
 		
 		function vaildate (t){
-			
+
 			if(isNaN(t)){
 					msg = "Please verify whether the temperature value is correct!!!";
 					alert(msg);
@@ -49,8 +49,8 @@
 		}
 			
 		
-		
-			var t1;
+		function conversion (u,t){
+				var t1;
 			   var u1;
 			   
 			   if(u == "F"){
@@ -63,12 +63,20 @@
 					t1 = t * (4/5);
 					u1 = "Kelvin";
 			   }
+			   return {u1,t1};
+
+		}
+			
 			 
 		
 	    $(document).ready(function(){
 			$("button").click(function(){
 			   var t = $('#temp').val();//celsius
 			   var u = $('#unit').val();
+
+			   var chk = vaildate(t);
+			   if (chk != null ) return chk ;
+			   var cvs = conversion (u ,t);
 			   
 			   
 			   
